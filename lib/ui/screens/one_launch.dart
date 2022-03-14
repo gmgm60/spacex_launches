@@ -62,6 +62,14 @@ class OneLaunchView extends StatelessWidget {
                 launchesModel.missionName,
                 style: const TextStyle(fontSize: 20),
               )),
+              const SizedBox(width: 20,),
+              Center(
+                child: SizedBox(
+                    height: 200,
+                    width: 200,
+                    child: Image.network(launchesModel.links.missionPatch,)),
+              ),
+
               const SizedBox(
                 height: 20,
               ),

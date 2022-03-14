@@ -27,9 +27,9 @@ Map<String, dynamic> _$$_LaunchesModelToJson(_$_LaunchesModel instance) =>
     };
 
 _$_links _$$_linksFromJson(Map<String, dynamic> json) => _$_links(
-      missionPatch: json['mission_patch'] as String? ?? "",
+      missionPatch: json['mission_patch_small'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$_linksToJson(_$_links instance) => <String, dynamic>{
-      'mission_patch': instance.missionPatch,
+      'mission_patch_small': instance.missionPatch,
     };

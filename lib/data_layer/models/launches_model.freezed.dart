@@ -325,7 +325,8 @@ Links _$LinksFromJson(Map<String, dynamic> json) {
 class _$LinksTearOff {
   const _$LinksTearOff();
 
-  _links call({@JsonKey(name: "mission_patch") String missionPatch = ""}) {
+  _links call(
+      {@JsonKey(name: "mission_patch_small") String missionPatch = ""}) {
     return _links(
       missionPatch: missionPatch,
     );
@@ -341,7 +342,7 @@ const $Links = _$LinksTearOff();
 
 /// @nodoc
 mixin _$Links {
-  @JsonKey(name: "mission_patch")
+  @JsonKey(name: "mission_patch_small")
   String get missionPatch => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -353,7 +354,7 @@ mixin _$Links {
 abstract class $LinksCopyWith<$Res> {
   factory $LinksCopyWith(Links value, $Res Function(Links) then) =
       _$LinksCopyWithImpl<$Res>;
-  $Res call({@JsonKey(name: "mission_patch") String missionPatch});
+  $Res call({@JsonKey(name: "mission_patch_small") String missionPatch});
 }
 
 /// @nodoc
@@ -382,7 +383,7 @@ abstract class _$linksCopyWith<$Res> implements $LinksCopyWith<$Res> {
   factory _$linksCopyWith(_links value, $Res Function(_links) then) =
       __$linksCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(name: "mission_patch") String missionPatch});
+  $Res call({@JsonKey(name: "mission_patch_small") String missionPatch});
 }
 
 /// @nodoc
@@ -410,13 +411,13 @@ class __$linksCopyWithImpl<$Res> extends _$LinksCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_links implements _links {
-  _$_links({@JsonKey(name: "mission_patch") this.missionPatch = ""});
+  _$_links({@JsonKey(name: "mission_patch_small") this.missionPatch = ""});
 
   factory _$_links.fromJson(Map<String, dynamic> json) =>
       _$$_linksFromJson(json);
 
   @override
-  @JsonKey(name: "mission_patch")
+  @JsonKey(name: "mission_patch_small")
   final String missionPatch;
 
   @override
@@ -449,13 +450,13 @@ class _$_links implements _links {
 }
 
 abstract class _links implements Links {
-  factory _links({@JsonKey(name: "mission_patch") String missionPatch}) =
+  factory _links({@JsonKey(name: "mission_patch_small") String missionPatch}) =
       _$_links;
 
   factory _links.fromJson(Map<String, dynamic> json) = _$_links.fromJson;
 
   @override
-  @JsonKey(name: "mission_patch")
+  @JsonKey(name: "mission_patch_small")
   String get missionPatch;
   @override
   @JsonKey(ignore: true)

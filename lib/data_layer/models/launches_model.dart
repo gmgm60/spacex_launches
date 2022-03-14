@@ -22,8 +22,10 @@ class LaunchesModel with _$LaunchesModel {
 
 @Freezed()
 class Links with _$Links {
-  factory Links(
-      {@JsonKey(name: "mission_patch") @Default("") String missionPatch}) = _links;
+  factory Links({
+    @JsonKey(name: "mission_patch_small") @Default("") String missionPatch,
+
+  }) = _links;
 
 
   factory Links.fromJson(Map<String, dynamic> json) =>
