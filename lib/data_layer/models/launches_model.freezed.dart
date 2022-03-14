@@ -27,13 +27,15 @@ class _$LaunchesModelTearOff {
       @JsonKey(name: "mission_name") required String missionName,
       @JsonKey(name: "launch_year") required String launchYear,
       @JsonKey(name: "launch_date_local") required String launchDateLocal,
-      @JsonKey(name: "launch_success") bool launchSuccess = false}) {
+      @JsonKey(name: "launch_success") bool launchSuccess = false,
+      required Links links}) {
     return _LaunchesModel(
       flightNumber: flightNumber,
       missionName: missionName,
       launchYear: launchYear,
       launchDateLocal: launchDateLocal,
       launchSuccess: launchSuccess,
+      links: links,
     );
   }
 
@@ -57,6 +59,7 @@ mixin _$LaunchesModel {
   String get launchDateLocal => throw _privateConstructorUsedError;
   @JsonKey(name: "launch_success")
   bool get launchSuccess => throw _privateConstructorUsedError;
+  Links get links => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -74,7 +77,10 @@ abstract class $LaunchesModelCopyWith<$Res> {
       @JsonKey(name: "mission_name") String missionName,
       @JsonKey(name: "launch_year") String launchYear,
       @JsonKey(name: "launch_date_local") String launchDateLocal,
-      @JsonKey(name: "launch_success") bool launchSuccess});
+      @JsonKey(name: "launch_success") bool launchSuccess,
+      Links links});
+
+  $LinksCopyWith<$Res> get links;
 }
 
 /// @nodoc
@@ -93,6 +99,7 @@ class _$LaunchesModelCopyWithImpl<$Res>
     Object? launchYear = freezed,
     Object? launchDateLocal = freezed,
     Object? launchSuccess = freezed,
+    Object? links = freezed,
   }) {
     return _then(_value.copyWith(
       flightNumber: flightNumber == freezed
@@ -115,7 +122,18 @@ class _$LaunchesModelCopyWithImpl<$Res>
           ? _value.launchSuccess
           : launchSuccess // ignore: cast_nullable_to_non_nullable
               as bool,
+      links: links == freezed
+          ? _value.links
+          : links // ignore: cast_nullable_to_non_nullable
+              as Links,
     ));
+  }
+
+  @override
+  $LinksCopyWith<$Res> get links {
+    return $LinksCopyWith<$Res>(_value.links, (value) {
+      return _then(_value.copyWith(links: value));
+    });
   }
 }
 
@@ -131,7 +149,11 @@ abstract class _$LaunchesModelCopyWith<$Res>
       @JsonKey(name: "mission_name") String missionName,
       @JsonKey(name: "launch_year") String launchYear,
       @JsonKey(name: "launch_date_local") String launchDateLocal,
-      @JsonKey(name: "launch_success") bool launchSuccess});
+      @JsonKey(name: "launch_success") bool launchSuccess,
+      Links links});
+
+  @override
+  $LinksCopyWith<$Res> get links;
 }
 
 /// @nodoc
@@ -152,6 +174,7 @@ class __$LaunchesModelCopyWithImpl<$Res>
     Object? launchYear = freezed,
     Object? launchDateLocal = freezed,
     Object? launchSuccess = freezed,
+    Object? links = freezed,
   }) {
     return _then(_LaunchesModel(
       flightNumber: flightNumber == freezed
@@ -174,6 +197,10 @@ class __$LaunchesModelCopyWithImpl<$Res>
           ? _value.launchSuccess
           : launchSuccess // ignore: cast_nullable_to_non_nullable
               as bool,
+      links: links == freezed
+          ? _value.links
+          : links // ignore: cast_nullable_to_non_nullable
+              as Links,
     ));
   }
 }
@@ -187,7 +214,8 @@ class _$_LaunchesModel implements _LaunchesModel {
       @JsonKey(name: "mission_name") required this.missionName,
       @JsonKey(name: "launch_year") required this.launchYear,
       @JsonKey(name: "launch_date_local") required this.launchDateLocal,
-      @JsonKey(name: "launch_success") this.launchSuccess = false});
+      @JsonKey(name: "launch_success") this.launchSuccess = false,
+      required this.links});
 
   factory _$_LaunchesModel.fromJson(Map<String, dynamic> json) =>
       _$$_LaunchesModelFromJson(json);
@@ -207,10 +235,12 @@ class _$_LaunchesModel implements _LaunchesModel {
   @override
   @JsonKey(name: "launch_success")
   final bool launchSuccess;
+  @override
+  final Links links;
 
   @override
   String toString() {
-    return 'LaunchesModel(flightNumber: $flightNumber, missionName: $missionName, launchYear: $launchYear, launchDateLocal: $launchDateLocal, launchSuccess: $launchSuccess)';
+    return 'LaunchesModel(flightNumber: $flightNumber, missionName: $missionName, launchYear: $launchYear, launchDateLocal: $launchDateLocal, launchSuccess: $launchSuccess, links: $links)';
   }
 
   @override
@@ -227,7 +257,8 @@ class _$_LaunchesModel implements _LaunchesModel {
             const DeepCollectionEquality()
                 .equals(other.launchDateLocal, launchDateLocal) &&
             const DeepCollectionEquality()
-                .equals(other.launchSuccess, launchSuccess));
+                .equals(other.launchSuccess, launchSuccess) &&
+            const DeepCollectionEquality().equals(other.links, links));
   }
 
   @override
@@ -237,7 +268,8 @@ class _$_LaunchesModel implements _LaunchesModel {
       const DeepCollectionEquality().hash(missionName),
       const DeepCollectionEquality().hash(launchYear),
       const DeepCollectionEquality().hash(launchDateLocal),
-      const DeepCollectionEquality().hash(launchSuccess));
+      const DeepCollectionEquality().hash(launchSuccess),
+      const DeepCollectionEquality().hash(links));
 
   @JsonKey(ignore: true)
   @override
@@ -256,7 +288,8 @@ abstract class _LaunchesModel implements LaunchesModel {
       @JsonKey(name: "mission_name") required String missionName,
       @JsonKey(name: "launch_year") required String launchYear,
       @JsonKey(name: "launch_date_local") required String launchDateLocal,
-      @JsonKey(name: "launch_success") bool launchSuccess}) = _$_LaunchesModel;
+      @JsonKey(name: "launch_success") bool launchSuccess,
+      required Links links}) = _$_LaunchesModel;
 
   factory _LaunchesModel.fromJson(Map<String, dynamic> json) =
       _$_LaunchesModel.fromJson;
@@ -277,7 +310,154 @@ abstract class _LaunchesModel implements LaunchesModel {
   @JsonKey(name: "launch_success")
   bool get launchSuccess;
   @override
+  Links get links;
+  @override
   @JsonKey(ignore: true)
   _$LaunchesModelCopyWith<_LaunchesModel> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+Links _$LinksFromJson(Map<String, dynamic> json) {
+  return _links.fromJson(json);
+}
+
+/// @nodoc
+class _$LinksTearOff {
+  const _$LinksTearOff();
+
+  _links call({@JsonKey(name: "mission_patch") String missionPatch = ""}) {
+    return _links(
+      missionPatch: missionPatch,
+    );
+  }
+
+  Links fromJson(Map<String, Object?> json) {
+    return Links.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $Links = _$LinksTearOff();
+
+/// @nodoc
+mixin _$Links {
+  @JsonKey(name: "mission_patch")
+  String get missionPatch => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $LinksCopyWith<Links> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $LinksCopyWith<$Res> {
+  factory $LinksCopyWith(Links value, $Res Function(Links) then) =
+      _$LinksCopyWithImpl<$Res>;
+  $Res call({@JsonKey(name: "mission_patch") String missionPatch});
+}
+
+/// @nodoc
+class _$LinksCopyWithImpl<$Res> implements $LinksCopyWith<$Res> {
+  _$LinksCopyWithImpl(this._value, this._then);
+
+  final Links _value;
+  // ignore: unused_field
+  final $Res Function(Links) _then;
+
+  @override
+  $Res call({
+    Object? missionPatch = freezed,
+  }) {
+    return _then(_value.copyWith(
+      missionPatch: missionPatch == freezed
+          ? _value.missionPatch
+          : missionPatch // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$linksCopyWith<$Res> implements $LinksCopyWith<$Res> {
+  factory _$linksCopyWith(_links value, $Res Function(_links) then) =
+      __$linksCopyWithImpl<$Res>;
+  @override
+  $Res call({@JsonKey(name: "mission_patch") String missionPatch});
+}
+
+/// @nodoc
+class __$linksCopyWithImpl<$Res> extends _$LinksCopyWithImpl<$Res>
+    implements _$linksCopyWith<$Res> {
+  __$linksCopyWithImpl(_links _value, $Res Function(_links) _then)
+      : super(_value, (v) => _then(v as _links));
+
+  @override
+  _links get _value => super._value as _links;
+
+  @override
+  $Res call({
+    Object? missionPatch = freezed,
+  }) {
+    return _then(_links(
+      missionPatch: missionPatch == freezed
+          ? _value.missionPatch
+          : missionPatch // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_links implements _links {
+  _$_links({@JsonKey(name: "mission_patch") this.missionPatch = ""});
+
+  factory _$_links.fromJson(Map<String, dynamic> json) =>
+      _$$_linksFromJson(json);
+
+  @override
+  @JsonKey(name: "mission_patch")
+  final String missionPatch;
+
+  @override
+  String toString() {
+    return 'Links(missionPatch: $missionPatch)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _links &&
+            const DeepCollectionEquality()
+                .equals(other.missionPatch, missionPatch));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(missionPatch));
+
+  @JsonKey(ignore: true)
+  @override
+  _$linksCopyWith<_links> get copyWith =>
+      __$linksCopyWithImpl<_links>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_linksToJson(this);
+  }
+}
+
+abstract class _links implements Links {
+  factory _links({@JsonKey(name: "mission_patch") String missionPatch}) =
+      _$_links;
+
+  factory _links.fromJson(Map<String, dynamic> json) = _$_links.fromJson;
+
+  @override
+  @JsonKey(name: "mission_patch")
+  String get missionPatch;
+  @override
+  @JsonKey(ignore: true)
+  _$linksCopyWith<_links> get copyWith => throw _privateConstructorUsedError;
 }

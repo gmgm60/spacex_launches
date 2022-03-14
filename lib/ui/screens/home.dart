@@ -73,19 +73,28 @@ class LaunchesRow extends StatelessWidget {
           color:launchesModel.launchSuccess ? Colors.green : Colors.red,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment:  CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
+            child: Row(
               children: [
-                Text(launchesModel.missionName,style: const TextStyle(fontSize: 20),),
-                const SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                SizedBox(
+                    height: 70,
+                    width: 70,
+                    child: Image.network(launchesModel.links.missionPatch,)),
+                const SizedBox(width: 20,),
+                Column(
+                  crossAxisAlignment:  CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text("launch year :${launchesModel.launchYear}"),
-                    Text("flight number :${launchesModel.flightNumber}"),
+                    Text(launchesModel.missionName,style: const TextStyle(fontSize: 14,fontWeight: FontWeight.bold),),
+                    const SizedBox(height: 20,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("launch year :${launchesModel.launchYear}"),
+                        Text("flight number :${launchesModel.flightNumber}"),
+                      ],
+                    )
                   ],
-                )
+                ),
               ],
             ),
           ),

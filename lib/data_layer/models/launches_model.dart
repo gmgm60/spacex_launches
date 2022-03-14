@@ -1,32 +1,32 @@
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'launches_model.freezed.dart';
+
 part 'launches_model.g.dart';
 
 @Freezed()
-class LaunchesModel with _$LaunchesModel{
+class LaunchesModel with _$LaunchesModel {
+  @JsonSerializable(explicitToJson: true)
+  factory LaunchesModel({
+    @JsonKey(name: "flight_number") required int flightNumber,
+    @JsonKey(name: "mission_name") required String missionName,
+    @JsonKey(name: "launch_year") required String launchYear,
+    @JsonKey(name: "launch_date_local") required String launchDateLocal,
+    @JsonKey(name: "launch_success") @Default(false) bool launchSuccess,
+    required Links links,
+  }) = _LaunchesModel;
 
- @JsonSerializable(explicitToJson: true)
- factory LaunchesModel({
-  @JsonKey(name: "flight_number")
-  required int flightNumber,
+  factory LaunchesModel.fromJson(Map<String, dynamic> json) =>
+      _$LaunchesModelFromJson(json);
+}
 
-  @JsonKey(name: "mission_name")
-  required String missionName,
+@Freezed()
+class Links with _$Links {
+  factory Links(
+      {@JsonKey(name: "mission_patch") @Default("") String missionPatch}) = _links;
 
-  @JsonKey(name: "launch_year")
-  required String launchYear,
 
-  @JsonKey(name: "launch_date_local")
-  required String launchDateLocal,
+  factory Links.fromJson(Map<String, dynamic> json) =>
+      _$LinksFromJson(json);
 
-  @JsonKey(name: "launch_success")
-  @Default(false)
-   bool launchSuccess,
-
-}) = _LaunchesModel ;
-
- factory LaunchesModel.fromJson(Map<String, dynamic> json) =>
-     _$LaunchesModelFromJson(json);
 }

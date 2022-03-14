@@ -13,6 +13,7 @@ _$_LaunchesModel _$$_LaunchesModelFromJson(Map<String, dynamic> json) =>
       launchYear: json['launch_year'] as String,
       launchDateLocal: json['launch_date_local'] as String,
       launchSuccess: json['launch_success'] as bool? ?? false,
+      links: Links.fromJson(json['links'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_LaunchesModelToJson(_$_LaunchesModel instance) =>
@@ -22,4 +23,13 @@ Map<String, dynamic> _$$_LaunchesModelToJson(_$_LaunchesModel instance) =>
       'launch_year': instance.launchYear,
       'launch_date_local': instance.launchDateLocal,
       'launch_success': instance.launchSuccess,
+      'links': instance.links.toJson(),
+    };
+
+_$_links _$$_linksFromJson(Map<String, dynamic> json) => _$_links(
+      missionPatch: json['mission_patch'] as String? ?? "",
+    );
+
+Map<String, dynamic> _$$_linksToJson(_$_links instance) => <String, dynamic>{
+      'mission_patch': instance.missionPatch,
     };

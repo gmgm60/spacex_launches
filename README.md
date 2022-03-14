@@ -1,7 +1,7 @@
 # App to view SpaceX Launches
 
 green is success
-red is faild
+red is failed
 
 Main Screen
 
