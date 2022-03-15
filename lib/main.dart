@@ -3,11 +3,14 @@ import 'package:fact_app/get_it/get_it.dart';
 import 'package:fact_app/ui/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 import 'bloc/view_one_launch/one_launch_cubit.dart';
+import 'get_it/injectable.dart';
 
 void main() {
-  AppGetIt.setup();
+ // AppGetIt.setup();
+  configureInjection(environment: InjectInv.prod);
   runApp(const MyApp());
 }
 
@@ -21,11 +24,11 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) =>
-          LaunchesCubit()
+          getIt.get<LaunchesCubit>()
             ..getAllLaunches(),
         ),
         BlocProvider(
-          create: (context) => OneLaunchCubit(),
+          create: (context) => getIt.get<OneLaunchCubit>(),
         ),
       ],
       child: MaterialApp(

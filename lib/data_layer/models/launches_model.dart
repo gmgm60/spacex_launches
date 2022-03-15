@@ -6,6 +6,7 @@ part 'launches_model.g.dart';
 
 @Freezed()
 class LaunchesModel with _$LaunchesModel {
+
   @JsonSerializable(explicitToJson: true)
   factory LaunchesModel({
     @JsonKey(name: "flight_number") required int flightNumber,

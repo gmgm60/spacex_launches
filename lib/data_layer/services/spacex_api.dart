@@ -3,13 +3,17 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:fact_app/data_layer/models/launches_model.dart';
 import 'package:fact_app/data_layer/services/retrofit/rest_client.dart';
+import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 
 import 'api_error.dart';
-
+@lazySingleton
 class SpaceXApi{
 final logger = Logger();
-final restClient = RestClient(Dio());
+final RestClient restClient;
+
+SpaceXApi(this.restClient);
+
   Future<Either<ApiError,List<LaunchesModel>>> getAllLaunches()async{
 
     List<LaunchesModel> list = [];

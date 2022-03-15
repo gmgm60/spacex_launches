@@ -7,7 +7,7 @@ import 'package:get_it/get_it.dart';
 class AppGetIt {
 
  static void  setup(){
-    GetIt.I.registerSingleton<SpaceXApi>(SpaceXApi());
+   // GetIt.I.registerSingleton<SpaceXApi>(SpaceXApi());
   }
 
  static SpaceXApi restClient() => GetIt.I<SpaceXApi>();

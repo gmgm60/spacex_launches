@@ -52,6 +52,13 @@ class Home extends StatelessWidget {
                         }, childCount: state.list.length),
                       );
                     }, error: (errorState) {
+                   return SliverFixedExtentList(
+                     itemExtent: 500,
+                     delegate: SliverChildListDelegate([
+                        Center(child: Text("Error : ${errorState.errorMsg}")),
+                     ]),
+                     // child: ,
+                   );
                       return Text("Error : ${errorState.errorMsg}");
                     }
                 ),
