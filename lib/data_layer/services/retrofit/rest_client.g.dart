@@ -18,9 +18,13 @@ class _RestClient implements RestClient {
   String? baseUrl;
 
   @override
-  Future<List<LaunchesModel>> getLaunches() async {
+  Future<List<LaunchesModel>> getLaunches(
+      {required limit, required offset}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'limit': limit,
+      r'offset': offset
+    };
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
@@ -36,7 +40,7 @@ class _RestClient implements RestClient {
   }
 
   @override
-  Future<LaunchesModel> getLaunch(flightNumber) async {
+  Future<LaunchesModel> getLaunch({required flightNumber}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

@@ -13,7 +13,7 @@ class OneLaunchCubit extends Cubit<OneLaunchState> {
 
   Future<void> getOneLaunch({required int flightNumber}) async {
     emit(OneLaunchState.loading());
-    final apiResult = await spaceXApi.getLaunch(flightNumber);
+    final apiResult = await spaceXApi.getLaunch(flightNumber: flightNumber);
     apiResult.fold(
         (error) => emit(OneLaunchState.error(errorMsg: error.error)),
         (final LaunchesModel launchesModel) =>

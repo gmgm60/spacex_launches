@@ -326,7 +326,8 @@ class _$LinksTearOff {
   const _$LinksTearOff();
 
   _links call(
-      {@JsonKey(name: "mission_patch_small") String missionPatch = ""}) {
+      {@JsonKey(name: "mission_patch_small") String missionPatch =
+          "https://i.pinimg.com/originals/f0/b8/3b/f0b83bfe08c85e745eb178b52fb00069.png"}) {
     return _links(
       missionPatch: missionPatch,
     );
@@ -411,7 +412,9 @@ class __$linksCopyWithImpl<$Res> extends _$LinksCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_links implements _links {
-  _$_links({@JsonKey(name: "mission_patch_small") this.missionPatch = ""});
+  _$_links(
+      {@JsonKey(name: "mission_patch_small") this.missionPatch =
+          "https://i.pinimg.com/originals/f0/b8/3b/f0b83bfe08c85e745eb178b52fb00069.png"});
 
   factory _$_links.fromJson(Map<String, dynamic> json) =>
       _$$_linksFromJson(json);

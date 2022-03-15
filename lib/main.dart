@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) =>
           getIt.get<LaunchesCubit>()
-            ..getAllLaunches(),
+            ..getLaunches(),
         ),
         BlocProvider(
           create: (context) => getIt.get<OneLaunchCubit>(),

@@ -24,7 +24,9 @@ class LaunchesModel with _$LaunchesModel {
 @Freezed()
 class Links with _$Links {
   factory Links({
-    @JsonKey(name: "mission_patch_small") @Default("") String missionPatch,
+    @JsonKey(name: "mission_patch_small")
+    @Default("https://i.pinimg.com/originals/f0/b8/3b/f0b83bfe08c85e745eb178b52fb00069.png")
+    String missionPatch,
 
   }) = _links;
 

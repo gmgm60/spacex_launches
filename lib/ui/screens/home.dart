@@ -21,10 +21,10 @@ class Home extends StatelessWidget {
       ),
       body: BlocBuilder<LaunchesCubit, LaunchesState>(
         builder: (context, state) {
+          LaunchesCubit launchesCubit = context.read<LaunchesCubit>();
           return RefreshIndicator(
             onRefresh: () async {
-              LaunchesCubit launchesCubit = context.read<LaunchesCubit>();
-              launchesCubit.getAllLaunches();
+              launchesCubit.refreshLaunches();
             },
             child: CustomScrollView(
               slivers: [
@@ -45,11 +45,21 @@ class Home extends StatelessWidget {
                         // child: ,
                       );
                     }, done: (state) {
-
                       return SliverList(
                         delegate: SliverChildBuilderDelegate((context, index) {
-                          return LaunchesRow(state.list[index]);
-                        }, childCount: state.list.length),
+
+                          if (index >= state.list.length) {
+                            if (launchesCubit.hasMoreData) {
+                              launchesCubit.getLaunches();
+                              return const Center(child: CircularProgressIndicator());
+                            }else{
+                              return const Center(child: Text("No more data"));
+                            }
+                          }else{
+                            return LaunchesRow(state.list[index]);
+                          }
+                        },
+                            childCount: state.list.length+1),
                       );
                     }, error: (errorState) {
                    return SliverFixedExtentList(

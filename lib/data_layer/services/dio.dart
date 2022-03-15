@@ -6,6 +6,11 @@ import 'package:injectable/injectable.dart';
 @module
 abstract class MyDioInject {
 
- Dio get dio => Dio();
+ Dio get dio {
+  Dio dio = Dio();
+
+
+  return dio ;
+ }
 
 }
