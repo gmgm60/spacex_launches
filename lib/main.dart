@@ -1,4 +1,5 @@
 import 'package:fact_app/bloc/all_launches/launches_cubit.dart';
+import 'package:fact_app/get_it/get_it.dart';
 import 'package:fact_app/ui/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/view_one_launch/one_launch_cubit.dart';
 
 void main() {
+  AppGetIt.setup();
   runApp(const MyApp());
 }
 
